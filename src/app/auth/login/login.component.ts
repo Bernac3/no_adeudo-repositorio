@@ -18,7 +18,6 @@ export class LoginComponent {
 
     this.authService.login(this.correo, this.contrasena).subscribe(
       (user) => {
-        console.log('Respuesta del servidor:', user);
 
         this.authService.setUser(user);
 

@@ -32,7 +32,6 @@ export class ListComponent implements OnInit {
       (data) => {
         this.alumnosConPeticiones = data;
         this.alumnosOriginales = [...data];  // Guardamos una copia de los datos completos
-        console.log('Datos de alumnos con peticiones:', this.alumnosConPeticiones);
       },
       (error) => {
         console.error('Error al obtener los datos de los alumnos:', error);
@@ -229,12 +228,10 @@ guardarDatosEstado(): void {
 
 setConAdeudoAlumno(): void {
   this.adeudoEstado = 'Con Adeudo';
-  console.log('Con adeudo seleccionado');
 }
 
 setSinAdeudoAlumno(): void {
   this.adeudoEstado = 'Sin Adeudo';
-  console.log('Sin adeudo seleccionado');
 }
 
 }

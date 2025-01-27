@@ -90,7 +90,6 @@ export class CrearDepartamentoComponent {
       // Llamada al servicio para crear el departamento
       this.departamentoService.crearDepartamentoAdmin(nuevoDepartamentoAdmin, authData).subscribe(
         (res) => {
-          console.log('Departamento creado con éxito:', res);
           alert('Departamento creado con éxito.');
           // Resetear el formulario después de crear el departamento
           this.departamentoForm.reset();

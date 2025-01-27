@@ -38,7 +38,6 @@ export class GestionDepartamentoComponent implements OnInit {
     this.departamentoService.obtenerDepartamentos(authData).subscribe(
       (response) => {
         this.departamentos = response.departamentos; // Guardar los datos en el arreglo
-        console.log('Departamentos obtenidos:', this.departamentos);
       },
       (error) => {
         console.error('Error al obtener los departamentos:', error);

@@ -52,7 +52,6 @@ export class ListaAdminComponent implements OnInit {
       (data) => {
         this.alumnosConPeticiones = data;
         this.alumnosOriginales = [...data];  // Guardamos una copia de los datos completos
-        console.log('Datos de alumnos con peticiones:', this.alumnosConPeticiones);
       },
       (error) => {
         console.error('Error al obtener los datos de los alumnos:', error);
@@ -213,14 +212,12 @@ export class ListaAdminComponent implements OnInit {
 
     this.peticionesService.insertarPeticionAdmin(datosAlumnoModalAdmin, authData).subscribe(
       response => {
-        console.log('Petición insertada correctamente');
 
         // Recargar los datos de alumnos y peticiones después de insertar
         this.authService.getAlumnosYPeticiones().subscribe(
           updatedData => {
             this.alumnosConPeticiones = updatedData;
             this.alumnosOriginales = [...updatedData]; // Actualizar la copia original
-            console.log('Datos actualizados:', this.alumnosConPeticiones);
           },
           error => {
             console.error('Error al recargar los datos de los alumnos:', error);
@@ -240,7 +237,6 @@ export class ListaAdminComponent implements OnInit {
     const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar al alumno?`);
 
     if (!confirmacion) {
-      console.log('Eliminación cancelada por el usuario');
       return; // Salir de la función si el usuario cancela
     }
 
@@ -268,7 +264,6 @@ export class ListaAdminComponent implements OnInit {
         this.actualizarListaAlumnos();
       },
       (error) => {
-        console.error('Error al Eliminar el Alumno:', error);
         alert('Error al Eliminar el Alumno');
       }
     );
