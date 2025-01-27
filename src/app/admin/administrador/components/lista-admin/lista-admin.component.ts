@@ -69,7 +69,6 @@ export class ListaAdminComponent implements OnInit {
     // Obtener los datos del Usuario Departamento
     this.authService.getUser().subscribe((data) => {
       this.usuario = data; // Asignamos los datos del alumno
-      console.log(`Datos List.component: User: ${this.usuario?.usuario} Departamento: ${this.usuario?.departamento_id}`);
     });
   }
 
@@ -109,7 +108,6 @@ export class ListaAdminComponent implements OnInit {
 
     if (alumnoFoto) {
       alumnoFoto.src = `https://no-adeudo.onrender.com/uploads/${alumno.foto}`;
-      console.log("Foto del Alumno desde list: " + alumnoFoto + alumno.foto)
     }
     if (alumnoContrasena) alumnoContrasena.value = alumno.contrasena;
   }
@@ -188,7 +186,6 @@ export class ListaAdminComponent implements OnInit {
         alumnoComentarioDepartamentoVinculacion
     };
 
-    console.log(datosAlumnoModalAdmin);
 
     // Llamada al servicio: estos datos aun falta obtenerlos del localstorage, pero los tengo asi por el momento
     // Creamos el objeto authData con los valores por defecto
@@ -212,7 +209,7 @@ export class ListaAdminComponent implements OnInit {
       authData.contrasena = parsedData.contrasena || '';
     }
 
-    console.log(authData); // Muestra el objeto authData con los valores correctos
+
 
     this.peticionesService.insertarPeticionAdmin(datosAlumnoModalAdmin, authData).subscribe(
       response => {
@@ -238,7 +235,6 @@ export class ListaAdminComponent implements OnInit {
 
   eliminarAlumnoAdminModal(): void {
     const alumnoIdModal = (document.getElementById('alumnoNoControl') as HTMLInputElement).value;
-    console.log("Id a eliminar: " + alumnoIdModal);
 
     // Mostrar alerta de confirmación
     const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar al alumno?`);
@@ -262,8 +258,7 @@ export class ListaAdminComponent implements OnInit {
       authData.contrasena = parsedData.contrasena || '';
     }
 
-    console.log('Auth Data:', authData);
-    console.log('Departamento autorizado:', alumnoIdModal);
+
 
     this.departamentoService.eliminarAlumnoAdminModal(alumnoIdModal, authData).subscribe(
       (res) => {

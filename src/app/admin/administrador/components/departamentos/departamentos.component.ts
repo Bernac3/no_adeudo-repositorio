@@ -70,9 +70,6 @@ export class DepartamentosComponent implements OnInit {
       authData.contrasena = parsedData.contrasena || '';
     }
 
-    console.log('Auth Data:', authData);
-    console.log('Departamento autorizado:', departamentoAutorizado);
-
     this.peticionesService.insertarDepartamentoAutorizado(departamentoAutorizado, authData).subscribe(
       (res) => {
         console.log('Departamento autorizado con éxito:', res);

@@ -83,10 +83,6 @@ export class GestionDepartamentoComponent implements OnInit {
       authData.contrasena = parsedData.contrasena || '';
     }
 
-    console.log("Usuario: " + nuevoDepartamento.usuario);
-    console.log("Contrasena: " + nuevoDepartamento.contrasena);
-    console.log("id: " + nuevoDepartamento.iddepartamentos);
-
 
     // Llamar al servicio para verificar al admin y guardar el departamento
     this.departamentoService.guardarDepartamentoAdmin(nuevoDepartamento, authData).subscribe(

@@ -19,7 +19,6 @@ export class ArchivoComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUser().subscribe((data) => {
       this.alumno = data;
-      console.log('Datos de alumno + peticiones:', this.alumno); // 🚀 Verifica los datos en la consola
     });
   }
 
@@ -32,8 +31,3 @@ export class ArchivoComponent implements OnInit {
     return 'badge text-bg-secondary'; // Por si hay algún valor inesperado
   }
 }
-
-
-
-
-// }

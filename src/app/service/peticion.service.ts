@@ -20,14 +20,11 @@ export class PeticionesService {
   constructor(private http: HttpClient) {}
 
   insertarPeticion(datos: any): Observable<any> {
-    console.log('Datos enviados para insertar la petición:', datos);  // Log de los datos que se envían
     return this.http.post(`${this.apiUrl}`, datos);
   }
 
 
   insertarPeticionAdmin(datosAlumno: any, authData: any): Observable<any> {
-
-    console.log(`Insertar Peticion Admin Service:  ${this.apiUrlAdmin}`)
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': JSON.stringify(authData)  // Añadimos el encabezado Authorization

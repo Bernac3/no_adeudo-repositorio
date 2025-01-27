@@ -49,7 +49,6 @@ export class ListComponent implements OnInit {
     // Obtener los datos del Usuaro Departamento
     this.authService.getUser().subscribe((data) => {
       this.usuario = data; // Asignamos los datos del alumno
-      console.log(`Datos List.component: User: ${this.usuario?.usuario} Departamento: ${this.usuario?.departamento_id}`)
     });
   }
 
@@ -143,7 +142,6 @@ export class ListComponent implements OnInit {
   setEstadoAdeudoAlumno(): void {
     const alumnoNoControl = document.getElementById('alumnoNoControl')?.textContent
 
-    console.log('comentario: ' + this.alumnoComentario)
     const usuarioDepartamento = this.usuario?.usuario
     const usuarioDepartamentoId = this.usuario?.departamento_id
 
@@ -166,17 +164,7 @@ export class ListComponent implements OnInit {
         peticionEstatus = 'estatus_departamento_de_vinculacion';
         break;
     }
-    // Datos del Alumno y Usuario para hacer la insercion
-    console.log('-----Datos-----')
-    console.log(`
-      No_control: ${alumnoNoControl}
-      Peticion_Estatus: ${peticionEstatus}
-      Estado_adeudo ${this.adeudoEstado}
-      Comentario : ${this.alumnoComentario}
 
-      Usuario_Departamento: ${usuarioDepartamento}
-      Usuario_Departamento_id: ${usuarioDepartamentoId}
-      `)
 
     this.guardarDatosEstado();
       const alumnoComentario = this.alumnoComentario
@@ -194,7 +182,6 @@ export class ListComponent implements OnInit {
         // usuarioDepartamento = nombre del ususario de departamento logeado y usuarioDepartamentId = tipo de usuario de departamento: de estos son 5 tipos en total:
         // administracion_finanzas, centro_informacion, centro_computo, recursos_materiales, departamento_vinculacion
       };
-      console.log(datos)
 
       this.peticionesService.insertarPeticion(datos).subscribe(
         response => {
@@ -213,7 +200,6 @@ guardarDatosEstado(): void {
   const etiquetaEstadoSpan = document.getElementById('etiquetaEstadoSpan'); // <span> específico
 
 
-  console.log(this.adeudoEstado)
   if (etiquetaEstado && etiquetaEstadoSpan && this.adeudoEstado) {
     // Configurar texto del span
     etiquetaEstadoSpan.textContent = this.adeudoEstado;
